@@ -1,0 +1,127 @@
+Userprofile 
+
+import './index.css'
+
+const UserProfile = props => {
+  const {userDetails} = props
+  const {imageUrl, name, role} = userDetails
+
+  return (
+    <li className="user-card-container">
+      <img src={imageUrl} className="avatar" alt="avatar" />
+      <div className="user-details-container">
+        <h1 className="user-name">{name}</h1>
+        <p className="user-designation">{role}</p>
+      </div>
+    </li>
+  )
+}
+
+export default UserProfile
+
+App.js 
+
+import UserProfile from './Components/UserProfile'
+
+import './App.css'
+
+const userDetailsList = [
+  {
+    uniqueNo: 1,
+    imageUrl: 'https://assets.ccbp.in/frontend/react-js/esther-howard-img.png',
+    name: 'Esther Howard',
+    role: 'Software Developer',
+  },
+  {
+    uniqueNo: 2,
+    imageUrl: 'https://assets.ccbp.in/frontend/react-js/floyd-miles-img.png',
+    name: 'Floyd Miles',
+    role: 'Software Developer',
+  },
+  {
+    uniqueNo: 3,
+    imageUrl: 'https://assets.ccbp.in/frontend/react-js/jacob-jones-img.png',
+    name: 'Jacob Jones',
+    role: 'Software Developer',
+  },
+  {
+    uniqueNo: 4,
+    imageUrl: 'https://assets.ccbp.in/frontend/react-js/devon-lane-img.png',
+    name: 'Devon Lane',
+    role: 'Software Developer',
+  },
+]
+
+const App = () => (
+  <div className="list-container">
+    <h1 className="title">Users List App</h1>
+    <ul>
+      {userDetailsList.map(eachItem => (
+        <UserProfile userDetails={eachItem} />
+      ))}
+    </ul>
+  </div>
+)
+
+export default App
+
+index.css 
+
+
+.user-card-container {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+.user-details-container {
+  margin-left: 12px;
+}
+
+.user-name {
+  font-size: 18px;
+  color: #12022f;
+  font-family: 'Roboto';
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+.user-designation {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #594d6d;
+  margin: 0px;
+}
+
+
+
+APP.CSS 
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: 'Roboto';
+  font-size: 32px;
+  color: #183b56;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+
