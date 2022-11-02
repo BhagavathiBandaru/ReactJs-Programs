@@ -1,0 +1,167 @@
+index.js 
+
+import './index.css'
+
+const BannerCardItem = props => {
+  const {bannerDetails} = props
+  const {headerText, description, className} = bannerDetails
+
+  return (
+    <li className={`${className} banner-card-item`}>
+      <div>
+        <h1 className="heading">{headerText}</h1>
+        <p className="description">{description}</p>
+        <button className="show-more-btn" type="button">
+          Show More
+        </button>
+      </div>
+    </li>
+  )
+}
+
+export default BannerCardItem
+
+App.js 
+
+import BannerCardItem from './components/BannerCardItem'
+
+import './App.css'
+
+const bannerCardsList = [
+  {
+    id: 1,
+    headerText: 'The Seasons Latest',
+    description: 'Get the seasons all latest designs in a flick of your hand',
+    className: 'card-1',
+  },
+  {
+    id: 2,
+    headerText: 'Our New Designs',
+    description:
+      'Get the designs developed by our in-house team all for yourself',
+    className: 'card-2',
+  },
+  {
+    id: 3,
+    headerText: 'Insiders',
+    description: 'Get the top class products for yourself with an extra off',
+    className: 'card-3',
+  },
+]
+
+const App = () => (
+  <div className="each_card">
+    <ul className="banner_cards_items">
+      {bannerCardsList.map(eachItem => (
+        <BannerCardItem bannerItems={eachItem} key={eachItem.id} />
+      ))}
+    </ul>
+  </div>
+)
+
+export default App
+
+
+
+index.css 
+
+.banner-card-item {
+  border: 1px solid #cbced2;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 32px;
+  max-width: 1140px;
+  list-style-type: none;
+}
+
+.card-1 {
+  display: flex;
+  justify-content: flex-end;
+
+  background-image: url('https://assets.ccbp.in/frontend/react-js/reusable-banners-card-1-bg.png');
+  background-size: cover;
+}
+
+.card-2 {
+  display: flex;
+  justify-content: flex-end;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/reusable-banners-card-2-bg.png');
+  background-size: cover;
+}
+
+.card-3 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/reusable-banners-card-3-bg.png');
+  background-size: cover;
+}
+
+.heading {
+  color: #326a9d;
+  font-family: 'Roboto';
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.description {
+  color: #64748b;
+  font-family: 'Roboto';
+  font-size: 18px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.show-more-btn {
+  color: #326a9d;
+  background-color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #326a9d;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+
+App.css 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.banner-cards-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding-left: 0px;
+}
+
+
+
+
+Readme:-
+
+In this project, let's build Reusable Banners 
+
+
+
